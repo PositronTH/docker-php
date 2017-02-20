@@ -23,6 +23,9 @@ RUN groupadd webmaster && useradd -s /sbin/nologin -d /var/www/ -M -g webmaster 
 ONBUILD RUN chown -R webmaster:webmaster /var/www
 
 ADD php.ini /etc
+ADD php_run.sh /php_run.sh
+
+RUN chmod a+x /php_run.sh
 
 EXPOSE $PHP_PORT
 

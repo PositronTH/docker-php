@@ -1,5 +1,6 @@
+#!/bin/bash
 
-
+rm -rf /etc/php-fpm.d/www.conf
 cat <<EOF >> /etc/php-fpm.d/www.conf
 [www]
 user = webmaster

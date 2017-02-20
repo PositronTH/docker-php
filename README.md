@@ -1,18 +1,19 @@
 # PHP-FPM Image
 My Docker Images
 
-[NGINX](https://github.com/PositronTH/docker-nginx) -> [PHP-FPM](https://github.com/PositronTH/docker-php) -> [MONGO](https://github.com/PositronTH/docker-mongo) / [MEMCACHED](https://github.com/PositronTH/docker-memcached)
+[NGINX](https://hub.docker.com/r/positron/nginx) -> [PHP-FPM](https://hub.docker.com/r/positron/php) -> [MONGO](https://hub.docker.com/r/positron/mongo) / [MEMCACHED](https://hub.docker.com/r/positron/memcached)
 
 ## Dockerfile
-[positron/php](https://github.com/PositronTH/docker-php/blob/master/Dockerfile), [positron/php:7](https://github.com/PositronTH/docker-php/blob/master/Dockerfile), [positron/php:7.1](https://github.com/PositronTH/docker-php/blob/master/Dockerfile), [positron/php:latest](https://github.com/PositronTH/docker-php/blob/master/Dockerfile)
+[positron/php](https://github.com/positronth/docker-php/blob/master/Dockerfile), [positron/php:7](https://github.com/positronth/docker-php/blob/master/Dockerfile), [positron/php:7.1](https://github.com/positronth/docker-php/blob/master/Dockerfile), [positron/php:latest](https://github.com/positronth/docker-php/blob/master/Dockerfile)
 
 ## How to use
 Network Mode = host
+
 **docker-compose**
 ```yaml
   php:
     container_name: "php"
-    build: docker/php
+    image: positron/php
     environment:
       - PHP_TIMEZONE=Asia/Bangkok
       - PHP_PORT=9000
@@ -33,11 +34,11 @@ ext:  php-common php-cli php-process php-pear php-pecl-memcache php-gd php-mbstr
 .
 
 # Note
-** build **
+**build**
 ```
 sudo docker build -t positron/php -t positron/php:7 -t positron/php:7.1 -t positron/php:latest /home/positron/My/Webs/docker/php/
 ```
-** push **
+**push**
 ```
 sudo docker push positron/php
 ```
