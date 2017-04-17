@@ -36,7 +36,7 @@ ext:  php-common php-cli php-process php-pear php-pecl-memcache php-gd php-mbstr
 # Note
 **build**
 ```
-sudo docker build -t positron/php -t positron/php:7 -t positron/php:7.1 -t positron/php:latest /home/positron/My/Webs/.docker/php/
+sudo docker build -t positron/php -t positron/php:7 -t positron/php:7.1 -t positron/php:latest /home/positron/My/Webs/.docker/php/ --no-cache=true
 ```
 **push**
 ```

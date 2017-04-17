@@ -10,7 +10,7 @@ RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.n
   && rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7 /etc/pki/rpm-gpg/RPM-GPG-KEY-remi /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7 \
   && yum update -y \
   && yum-config-manager --enable remi-php71 \
-  && yum install -y php-common php-cli php-process php-pecl-memcache php-gd php-mbstring php-pecl-zip php-mcrypt php-xml php-pecl-apc php-pecl-mongodb php-xmlrpc php-opcache php-fpm ImageMagick ImageMagick-devel \
+  && yum install -y php-common php-cli php-process php-gd php-mbstring php-pecl-zip php-mcrypt php-xml php-pecl-apc php-pecl-mongodb php-xmlrpc php-opcache php-fpm php-pecl-imagick ImageMagick ImageMagick-devel \
   && yum clean all
 # php-pear -- deleted
 
@@ -23,12 +23,12 @@ RUN groupadd webmaster && useradd -s /sbin/nologin -d /var/www/ -M -g webmaster 
 
 ONBUILD RUN chown -R webmaster:webmaster /var/www
 
-ADD php.ini /etc
-ADD php_run.sh /php_run.sh
+COPY php.ini /etc
+COPY php_run.sh /php_run.sh
 
 RUN chmod a+x /php_run.sh
 
 EXPOSE $PHP_PORT
 
-ENTRYPOINT []
+ENTRYPOINT [""]
 CMD ["/php_run.sh"]
