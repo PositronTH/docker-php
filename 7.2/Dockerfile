@@ -6,7 +6,7 @@ ENV PHP_PORT "9000"
 ENV PHP_STATUS_URL "/php_fpm_status"
 
 RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm \
-  http://rpms.famillecollet.com/enterprise/7/remi/x86_64/remi-release-7.3-1.el7.remi.noarch.rpm \
+  http://rpms.famillecollet.com/enterprise/7/remi/x86_64/remi-release-7.3-2.el7.remi.noarch.rpm \
   && rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7 /etc/pki/rpm-gpg/RPM-GPG-KEY-remi /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7 \
   && yum update -y \
   && yum-config-manager --enable remi-php72 \
