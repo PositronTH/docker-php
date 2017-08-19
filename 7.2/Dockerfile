@@ -10,9 +10,10 @@ RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.n
   && rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7 /etc/pki/rpm-gpg/RPM-GPG-KEY-remi /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7 \
   && yum update -y \
   && yum-config-manager --enable remi-php72 \
-  && yum install -y php-common php-cli php-process php-gd php-mbstring php-pecl-zip php-mcrypt php-xml php-pecl-apc php-pecl-mongodb php-xmlrpc php-opcache php-fpm \
-  ImageMagick ImageMagick-devel \
+  && yum install -y php-common php-cli php-process php-gd php-mbstring php-pecl-zip php-mcrypt php-xml php-pecl-apc php-pecl-mongodb php-xmlrpc php-opcache php-fpm php-mysql \
+  php-pecl-imagick ImageMagick ImageMagick-devel \
   && yum clean all
+# php-pear -- deleted
 
 RUN echo "date.timezone=$PHP_TIMEZONE" > /etc/php.d/00-date-timezone.ini
 
